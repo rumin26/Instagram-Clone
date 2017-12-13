@@ -56,7 +56,9 @@ class SignUpViewController: UIViewController {
             user.username = txtfield_username.text
             user.email = txtfield_email.text
             user.password = txtfield_password.text
-        
+            let acl = PFACL()
+            acl.getPublicWriteAccess = true
+            user.acl = acl
             user.signUpInBackground { (success, error) in
                 if success
                 {
